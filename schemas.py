@@ -89,7 +89,7 @@ class ProductoBase(BaseModel):
     tipo_producto: int
     class Config: from_attributes = True
 
-# --- SEGURIDAD ---
+
 class UsuarioCreate(BaseModel):
     username: str
     password: str
