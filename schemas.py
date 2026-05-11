@@ -2,7 +2,7 @@ from pydantic import BaseModel
 from datetime import date, datetime
 from typing import Optional, List
 
-# --- ESQUEMAS MAESTROS ---
+
 class AreaConocimientoBase(BaseModel):
     id: int
     gran_area: str
@@ -100,7 +100,7 @@ class RolBase(BaseModel):
     nombre: str
     descripcion: Optional[str] = None
 
-# --- RELACIONES (MUCHOS A MUCHOS) ---
+
 class DesarrollaBase(BaseModel):
     docente: int
     proyecto: int

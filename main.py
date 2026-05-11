@@ -5,7 +5,7 @@ from database import engine, Base, get_db
 import models, schemas
 from typing import List
 
-# Crear la estructura completa en la DB
+
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
@@ -21,7 +21,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# - FUNCIÓN AUXILIAR PARA CRUD GENÉRICO -
+
 def generic_crud(router_name: str, model, schema):
     @app.get(f"/{router_name}", tags=[router_name.capitalize()], response_model=List[schema])
     def listar(db: Session = Depends(get_db)):
@@ -35,7 +35,7 @@ def generic_crud(router_name: str, model, schema):
 
     @app.delete(f"/{router_name}/{{id}}", tags=[router_name.capitalize()])
     def eliminar(id: int, db: Session = Depends(get_db)):
-        # Nota: Ajustar según el nombre de la PK si no es 'id'
+    
         pk_name = "cedula" if router_name == "docentes" else "id"
         if router_name == "aliados": pk_name = "nit"
         
