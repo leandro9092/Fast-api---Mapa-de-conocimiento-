@@ -49,7 +49,7 @@ class TipoProducto(Base):
     nombre = Column(String(45), nullable=False)
     tipologia = Column(String(45), nullable=False)
 
-# --- ENTIDADES PRINCIPALES ---
+
 class Docente(Base):
     __tablename__ = "docente"
     cedula = Column(Integer, primary_key=True)
@@ -107,7 +107,7 @@ class ODSProyecto(Base):
     proyecto = Column(Integer, ForeignKey("proyecto.id"), primary_key=True)
     ods = Column(Integer, ForeignKey("objetivo_desarrollo_sostenible.id"), primary_key=True)
 
-# --- SEGURIDAD ---
+
 class Rol(Base):
     __tablename__ = "rol"
     id = Column(Integer, primary_key=True, autoincrement=True)
